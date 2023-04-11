@@ -35,6 +35,7 @@ gem "bootsnap", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
+gem "figaro"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -44,6 +45,9 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "simplecov", require: false
+  gem "shoulda-matchers"
+
+  # webmock and vcr will be installed next
 end
 
 group :development do
