@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  validates_presence_of :id
+  validates_uniqueness_of :id
   validates_presence_of :name
   validates_presence_of :ingredients
   validates_presence_of :image

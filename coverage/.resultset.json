@@ -308,6 +308,8 @@
           2,
           2,
           2,
+          2,
+          2,
           null,
           null,
           1,
@@ -319,6 +321,8 @@
       },
       "/Users/christophercrane/Desktop/PantryWizardCode/pantry_wizard_be/app/models/recipe.rb": {
         "lines": [
+          1,
+          1,
           1,
           1,
           1,
@@ -365,6 +369,6 @@
         ]
       }
     },
-    "timestamp": 1681334450
+    "timestamp": 1681334844
   }
 }
