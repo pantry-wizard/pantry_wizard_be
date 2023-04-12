@@ -13,4 +13,8 @@ class RecipeService
   def self.search_recipes(params)
     get_url("/recipes/search?#{params}&number=5")
   end
+
+  def self.get_recipe(id)
+    get_url("/recipes/#{id}/information")
+  end
 end
