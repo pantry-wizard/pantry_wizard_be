@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&%7B:query=%3E%22pasta%22,%20:diet=%3E%22vegan%22%7D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - X-RapidAPI-Key
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 12 Apr 2023 17:03:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '610'
+      Connection:
+      - keep-alive
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Allow-Control-Allow-Methods:
+      - GET, HEAD, POST, OPTIONS, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Spx9reKX9by6d0QdukrJpVLXwkT4tHIQxrlUGmD0nGINbzqPFOXav5SPBPnsbDTrlCIWcf0oSI9DvUUTdjUkt1d8DB16dRrzDgn41jZdihMG0EMYXpTGmv9ub0yVPE3bXQS%2B%2Fa0%3D"}],"group":"cf-nel","max_age":604800}'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, OPTIONS, DELETE, PUT
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      Allow-Control-Allow-Origin:
+      - "*"
+      Cf-Ray:
+      - 7b6d0ba25fd0c4d4-SEA
+      Access-Control-Allow-Headers:
+      - Authorization, UserId, Hash, Name, Password, Accept, Accept-Language, x-api-key,
+        Content-Language, Content-Type, Cache-Control, Origin, X-Requested-With
+      X-Ratelimit-Tinyrequests-Limit:
+      - '500'
+      X-Ratelimit-Tinyrequests-Remaining:
+      - '500'
+      X-Ratelimit-Tinyrequests-Reset:
+      - '85115'
+      X-Ratelimit-Requests-Limit:
+      - '50'
+      X-Ratelimit-Requests-Remaining:
+      - '45'
+      X-Ratelimit-Requests-Reset:
+      - '85115'
+      X-Ratelimit-Results-Limit:
+      - '500'
+      X-Ratelimit-Results-Remaining:
+      - '478'
+      X-Ratelimit-Results-Reset:
+      - '85115'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - us-west-2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"results":[{"readyInMinutes":15,"sourceUrl":"http://naturallyella.com/cabbage-salad-with-peanuts/","image":"cabbage-salad-with-peanuts-723984.jpg","servings":2,"id":723984,"title":"Cabbage
+        Salad with Peanuts"},{"readyInMinutes":10,"sourceUrl":"http://shewearsmanyhats.com/2011/05/rhubarb-strawberry-smoothie/","image":"Rhubarb-Strawberry-Smoothie-537208.jpg","servings":2,"id":537208,"title":"Rhubarb
+        Strawberry Smoothie"},{"readyInMinutes":16,"sourceUrl":"http://www.cookincanuck.com/2013/09/stuffed-sweet-potato-recipe-with-spinach-hummus-feta/","image":"Stuffed-Sweet-Potato-with-Spinach--Hummus---Feta-584549.jpg","servings":1,"id":584549,"title":"Stuffed
+        Sweet Potato with Spinach, Hummus & Feta"},{"readyInMinutes":250,"sourceUrl":"http://thelemonbowl.com/2013/04/slow-cooker-vegetarian-chili-with-butternut-squash.html","image":"Slow-Cooker-Vegetarian-Chili-with-Butternut-Squash-482574.jpg","servings":4,"id":482574,"title":"Slow
+        Cooker Vegetarian Chili with Butternut Squash"},{"readyInMinutes":20,"sourceUrl":"http://www.thegraciouspantry.com/clean-eating-cilantro-salsa/","image":"Cilantro-Salsa-667917.jpg","servings":2,"id":667917,"title":"Cilantro
+        Salsa"}],"baseUri":"https://spoonacular.com/recipeImages/","offset":0,"number":5,"totalResults":385617,"processingTimeMs":183,"expires":1681578235879}'
+  recorded_at: Wed, 12 Apr 2023 17:03:55 GMT
+recorded_with: VCR 6.1.0
