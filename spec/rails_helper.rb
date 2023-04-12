@@ -1,5 +1,3 @@
-require "simplecov"
-SimpleCov.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
@@ -78,7 +76,7 @@ RSpec.configure do |config|
   VCR.configure do |config|
     config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
     config.hook_into :webmock
-    # config.filter_sensitive_data("<API_KEY>") { ENV["API_KEY"] }
-    config.configure_rspec_metadata!
+    config.filter_sensitive_data("X-RapidAPI-Key") { ENV["X-RapidAPI-Key"] }
+    # config.configure_rspec_metadata!
   end
 end
