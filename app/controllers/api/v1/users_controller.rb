@@ -21,6 +21,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    begin
+      render json: UserSerializer.new(User.destroy(params[:id]))
+    end
+  end
+
   private
 
   def user_params

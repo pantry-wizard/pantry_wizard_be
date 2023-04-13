@@ -53,4 +53,13 @@ describe 'User API' do
       expect(user[:data][:attributes][:dietary_restrictions]).to eq(user_params[:dietary_restrictions])
     end
   end
+
+  describe '#destroy' do
+    it 'deletes a user' do
+      delete "/api/v1/users/#{@user.id}"
+
+      expect(response).to be_successful
+      expect(User.count).to eq(0)
+    end
+  end
 end
