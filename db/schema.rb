@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
   end
 
   create_table "day_plans", force: :cascade do |t|
-    t.bigint "user_id"
+    t.string "user_id"
     t.date "date"
     t.string "meal_type"
     t.datetime "created_at", null: false
@@ -33,8 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
     t.index ["user_id"], name: "index_day_plans_on_user_id"
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.integer "recipe_id"
+  create_table "recipes", primary_key: "recipe_id", force: :cascade do |t|
     t.string "name"
     t.string "ingredients"
     t.string "instructions"
@@ -43,19 +42,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", primary_key: "google_id", id: :string, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "intolerances"
     t.string "likes"
     t.string "dislikes"
     t.string "dietary_restrictions"
-    t.string "google_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "day_plan_recipes", "day_plans"
-  add_foreign_key "day_plan_recipes", "recipes"
-  add_foreign_key "day_plans", "users"
+  add_foreign_key "day_plan_recipes", "recipes", primary_key: "recipe_id"
+  add_foreign_key "day_plans", "users", primary_key: "google_id"
 end
