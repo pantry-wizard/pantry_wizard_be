@@ -4,5 +4,5 @@ class DayPlanRecipe < ApplicationRecord
   validates_presence_of :meal_type
   
   belongs_to :day_plan
-  belongs_to :recipe
+  belongs_to :recipe, foreign_key: :recipe_id
 end
