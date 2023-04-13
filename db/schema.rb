@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
     t.string "user_id"
     t.date "date"
     t.string "meal_type"
+    t.string "google_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_day_plans_on_user_id"
