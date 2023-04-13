@@ -27,12 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
   create_table "day_plans", force: :cascade do |t|
     t.bigint "user_id"
     t.date "date"
+    t.string "meal_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_day_plans_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.integer "recipe_id"
     t.string "name"
     t.string "ingredients"
     t.string "instructions"
@@ -42,9 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
-    t.string "password"
     t.string "intolerances"
     t.string "likes"
     t.string "dislikes"
