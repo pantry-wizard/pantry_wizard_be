@@ -3,7 +3,8 @@ class CreateDayPlans < ActiveRecord::Migration[7.0]
     create_table :day_plans do |t|
       t.references :user, foreign_key: true
       t.date :date
-
+      t.string :meal_type
+      
       t.timestamps
     end
   end

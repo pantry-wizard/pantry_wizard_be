@@ -1,12 +1,7 @@
 FactoryBot.define do
   factory :user do
-    username { "MyString" }
-    email { "MyString" }
-    password { "MyString" }
-    intolerances { "MyString" }
-    likes { "MyString" }
-    dislikes { "MyString" }
-    dietary_restrictions { "MyString" }
-    google_id { "MyString" }
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    google_id { Faker::Number.number(digits: 10) }
   end
 end
