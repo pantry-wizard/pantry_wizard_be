@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :likes
       t.string :dislikes
       t.string :dietary_restrictions
-      t.string :google_id
+      t.string :google_id, primary_key: true
 
       t.timestamps
     end
