@@ -1,5 +1,5 @@
 class DayPlan < ApplicationRecord
-  validates_uniqueness_of :date
+  validates :date, uniqueness: { scope: :user_id }
 
   belongs_to :user
   has_many :day_plan_recipes
