@@ -23,4 +23,16 @@ describe "DayPlan API" do
       expect(plan[:data][2][:attributes][:date]).to eq(@day_plan3.date.to_s)
     end
   end
+
+  describe "#show" do
+    it "returns a day plan" do
+      get "/api/v1/users/#{@user.id}/day_plans/#{@day_plan.id}"
+
+      expect(response).to be_successful
+      plan = JSON.parse(response.body, symbolize_names: true)
+
+      expect(plan[:data][:attributes][:date]).to eq(@day_plan.date.to_s)
+      expect(plan[:data][:attributes][:user_id]).to eq(@day_plan.user_id)
+    end
+  end
 end
