@@ -58,4 +58,25 @@ describe "DayPlan API" do
       expect(error[:errors][0][:title]).to eq("Validation failed: Date has already been taken")
     end
   end
+
+  describe "#update" do
+    it "updates a day plan" do
+      plan_params = { date: "2020-01-05" }
+
+      patch "/api/v1/users/#{@user.id}/day_plans/#{@day_plan.id}", params: plan_params
+      
+      expect(response).to be_successful
+      plan = JSON.parse(response.body, symbolize_names: true)
+      expect(plan[:data][:attributes][:date]).to eq(plan_params[:date])
+    end
+
+    it 'returns a 400 if day plan not updated due to non-unique date' do
+      plan_params = { date: "2020-01-02" }
+      patch "/api/v1/users/#{@user.id}/day_plans/#{@day_plan.id}", params: plan_params
+      
+      expect(response.status).to eq(404)
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:errors][0][:title]).to eq("Validation failed: Date has already been taken")
+    end
+  end
 end
