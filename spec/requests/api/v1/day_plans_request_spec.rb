@@ -79,4 +79,13 @@ describe "DayPlan API" do
       expect(error[:errors][0][:title]).to eq("Validation failed: Date has already been taken")
     end
   end
+
+  describe "#destroy" do
+    it "deletes a day plan" do
+      expect(@user.day_plans.count).to eq(3)
+      delete "/api/v1/users/#{@user.id}/day_plans/#{@day_plan.id}"
+      expect(response).to be_successful
+      expect(@user.day_plans.count).to eq(2)
+    end
+  end
 end
