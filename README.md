@@ -21,11 +21,11 @@
     <br>
     This is the backend service of the application.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
+    <!-- <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a> -->
+    <!-- <br /> -->
+    <!-- <br /> -->
+    <!-- <a href="https://github.com/github_username/repo_name">View Demo</a> -->
+    <!-- · -->
     <a href="https://github.com/pantry-wizard/pantry_wizard_be/issues">Report Bug</a>
     ·
     <a href="https://github.com/pantry-wizard/pantry_wizard_be/issues">Request Feature</a>
@@ -50,14 +50,17 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#testing-with-rspec">Testing With RSpec</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#available-endpoints">Available Endpoints</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <!-- <li><a href="#usage">Usage</a></li> -->
+    <!-- <li><a href="#roadmap">Roadmap</a></li> -->
+    <!-- <li><a href="#contributing">Contributing</a></li> -->
+    <!-- <li><a href="#license">License</a></li> -->
+    <!-- <li><a href="#contact">Contact</a></li> -->
+    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -193,18 +196,19 @@ See the official project requirements [here](https://backend.turing.edu/module3/
 <br>
 
 ### Learning Goals
-- learning goal
-- learning goal
-- learning goal
-- learning goal
+- Impliment Google OAuth so users can log in easily.
+- Impliment CircleCI for continuous integration.
+- Utilize Service Oriented Architecture by creating an API with Rails.
+- Interact with two unique external API's.
+- Deploy both the frontend and backend on Heroku.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Future Goals
-- learning goal
-- learning goal
-- learning goal
-- learning goal
+- Add google calendar so meals can be scheduled in advance.
+- Integrating Swagger.
+- Integrating HoneyBadger for observability of backend queries.
+- Integrating Swagger to make endpoint testing easier.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
