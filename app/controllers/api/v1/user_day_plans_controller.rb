@@ -13,7 +13,7 @@ class Api::V1::UserDayPlansController < ApplicationController
 
   def create 
     begin 
-      render json: DayPlanSerializer.new(DayPlan.create!(day_plan_params))
+      render json: DayPlanSerializer.new(user.day_plans.create!(day_plan_params))
     end
   end
 

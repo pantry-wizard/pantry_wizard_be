@@ -35,4 +35,18 @@ describe "DayPlan API" do
       expect(plan[:data][:attributes][:user_id]).to eq(@day_plan.user_id)
     end
   end
+
+  describe "#create" do
+    it "creates a day plan" do
+      plan_params = { date: "2020-01-04" }
+
+      post "/api/v1/users/#{@user.id}/day_plans", params: plan_params
+      
+      expect(response).to be_successful
+      plan = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(plan[:data][:attributes][:date]).to eq(plan_params[:date])
+      expect(@user.day_plans.count).to eq(4)
+    end
+  end
 end
