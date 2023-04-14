@@ -48,5 +48,14 @@ describe "DayPlan API" do
       expect(plan[:data][:attributes][:date]).to eq(plan_params[:date])
       expect(@user.day_plans.count).to eq(4)
     end
+
+    it 'returns a 400 if day plan not created due to non-unique date' do
+      plan_params = { date: "2020-01-02" }
+      post "/api/v1/users/#{@user.id}/day_plans", params: plan_params
+      
+      expect(response.status).to eq(404)
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:errors][0][:title]).to eq("Validation failed: Date has already been taken")
+    end
   end
 end
