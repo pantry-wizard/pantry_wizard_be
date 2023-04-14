@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validates_presence_of :google_id
   validates_uniqueness_of :google_id
+  self.primary_key = :google_id
 
   has_many :day_plans
   has_many :day_plan_recipes, through: :day_plans
