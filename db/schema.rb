@@ -33,7 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
     t.index ["user_id"], name: "index_day_plans_on_user_id"
   end
 
-  create_table "recipes", primary_key: "recipe_id", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
+    t.bigint "recipe_id"
     t.string "name"
     t.string "ingredients"
     t.string "instructions"
@@ -55,6 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_193757) do
   end
 
   add_foreign_key "day_plan_recipes", "day_plans"
-  add_foreign_key "day_plan_recipes", "recipes", primary_key: "recipe_id"
+  add_foreign_key "day_plan_recipes", "recipes"
   add_foreign_key "day_plans", "users"
 end
