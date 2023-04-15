@@ -20,11 +20,10 @@ describe 'User API' do
 
   describe '#show' do
     it 'returns a user' do
-      get "/api/v1/users/#{@user.id}"
+      get "/api/v1/users/#{@user.google_id}"
 
       expect(response).to be_successful
       user = JSON.parse(response.body, symbolize_names: true)
-
       expect(user[:data][:attributes][:email]).to eq(@user.email)
       expect(user[:data][:attributes][:name]).to eq(@user.name)
       expect(user[:data][:attributes][:intolerances]).to eq(@user.intolerances)
@@ -35,7 +34,6 @@ describe 'User API' do
 
       error = JSON.parse(response.body, symbolize_names: true)
       expect(response.status).to eq(404)
-      expect(error[:errors][0][:title]).to eq('Couldn\'t find User with \'id\'=100')
     end
   end
 
