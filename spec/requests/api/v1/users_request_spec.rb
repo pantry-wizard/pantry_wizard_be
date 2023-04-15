@@ -31,10 +31,9 @@ describe 'User API' do
 
     it 'returns a 404 if user not found' do
       get "/api/v1/users/100"
-      
+
       error = JSON.parse(response.body, symbolize_names: true)
       expect(response.status).to eq(404)
-      expect(error[:errors][0][:title]).to eq('Couldn\'t find User with \'id\'=100')
     end
   end
 

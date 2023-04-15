@@ -5,9 +5,8 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     user = User.find_by(google_id: params[:id])
-    begin 
-      render json: UserSerializer.new(User.find(params[:id])) if user.nil?
-      render json: UserSerializer.new(user)
+    begin
+      render json: UserSerializer.new(User.find(user.id))
     end
   end
 
@@ -30,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-
+  
   def user_params
     params.permit(:email, :google_id, :name, :intolerances, :likes, :dislikes, :dietary_restrictions)
   end
