@@ -28,6 +28,7 @@ RSpec.describe RecipeService do
       it 'returns a recipe' do
         VCR.use_cassette('recipe_service_get_recipe') do
           get_recipe = RecipeService.get_recipe(716429)
+          require 'pry'; binding.pry
           expect(get_recipe).to be_a(Hash)
           expect(get_recipe[:id]).to eq(716429)
           expect(get_recipe[:title]).to eq("Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs")
