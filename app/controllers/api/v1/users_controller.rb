@@ -4,8 +4,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    user = User.find_by(google_id: params[:id])
     begin 
-      render json: UserSerializer.new(User.find(params[:id]))
+      render json: UserSerializer.new(User.find(params[:id])) if user.nil?
+      render json: UserSerializer.new(user)
     end
   end
 
