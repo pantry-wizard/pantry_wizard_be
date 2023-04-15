@@ -350,15 +350,20 @@ RSpec.describe Recipe do
   }
 
     @recipe = RecipePoro.new(recipe1)
-    require 'pry'; binding.pry
   end
 
   it "exists" do
-    expect(@recipe).to be_a(Recipe)
+    expect(@recipe).to be_a(RecipePoro)
     expect(@recipe.spoonacular_id).to eq(801710)
     
     expect(@recipe.ingredients).to be_a(Array)
-    expect(@recipe.ingredients).to eq(["1/2 head cauliflower, cut into small florets", "1/2 lb pasta", "2 tbsp butter", "2 cloves garlic, minced", "salt and pepper, to taste", "3 scallions, chopped, white and green parts separated", "2-3 tbsp white wine", "1/4 cup whole wheat bread crumbs (I used panko)"])
-    expect(@recipe.instructions).to 
+    expect(@recipe.ingredients).to eq([
+      {:amount=>1.0, :name=>"banana", :unit=>""},
+      {:amount=>1.0, :name=>"ice cubes", :unit=>"Handful"},
+      {:amount=>1.0, :name=>"kale", :unit=>"cup"},
+      {:amount=>1.0, :name=>"lemon", :unit=>"Tbsp"},
+      {:amount=>0.5, :name=>"matcha powder", :unit=>"tsps"},
+      {:amount=>1.0, :name=>"pineapple", :unit=>"cup"},
+      {:amount=>0.5, :name=>"soy milk", :unit=>"cups"}])
   end
 end
