@@ -32,3 +32,6 @@
 /config/application.yml
 
 coverage
+
+# Ignore newrelic.yml
+/config/newrelic.yml
