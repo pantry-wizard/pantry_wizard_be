@@ -32,7 +32,7 @@ class Api::V1::DayPlanRecipesController < ApplicationController
   private
 
   def user_day_plan
-    @user_day_plan ||= DayPlan.find(params[:user_id])
+    @user_day_plan ||= DayPlan.find(params[:day_plan_id])
   end
 
   def day_plan_recipe_params

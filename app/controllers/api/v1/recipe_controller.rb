@@ -1,5 +1,5 @@
 class Api::V1::RecipeController < ApplicationController
-  before_action :day_plan_recipe
+  # before_action :day_plan_recipe
 
   def index
     render json: RecipeSerializer.new(@day_plan_recipe.recipe)
@@ -7,7 +7,7 @@ class Api::V1::RecipeController < ApplicationController
 
   def create 
     begin 
-      render json: RecipeSerializer.new(@user.day_plans.create!(recipe_params))
+      render json: RecipeSerializer.new(@day_plan_recipe.recipe.create!(recipe_params))
     end
   end
 
@@ -25,9 +25,9 @@ class Api::V1::RecipeController < ApplicationController
 
   private
 
-  def day_plan_recipe
-    @day_plan_recipe ||= DayPlanRecipe.find(params[:user_id])
-  end
+  # def day_plan_recipe
+  #   @day_plan_recipe ||= DayPlanRecipe.find(params[:day_plan_recipe_id])
+  # end
 
   def recipe_params
     params.permit(:spoonacular_id, :name, :ingredients, :instructions, :image)
