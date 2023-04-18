@@ -12,5 +12,8 @@
 
 @dayplan1 = @brian.day_plans.create(date: "2021-01-01")
 @recipe1 = Recipe.create!(name: 'oatmeal', ingredients: "oats, water, salt", instructions: "boil water, add oats, add salt, stir, eat", spoonacular_id: "1234567890a", image: "https://spoonacular.com/recipeImages/595736-556x370.jpg")
-@dayplan1.day_plan_recipes.create(recipe: @recipe1, meal_type: "breakfast")
+# @recipe2 = Recipe.create!(name: 'cheese n grits', ingredients: "cheese, grits", instructions: "boil water, add oats, add salt, stir, eat", spoonacular_id: "19823674598157", image: "https://spoonacular.com/recipeImages/595736-556x370.jpg")
+DayPlanRecipe.create!(day_plan_id: @dayplan1.id, recipe_id: @recipe1.id)
 
+@dayplan2 = @brian.day_plans.create(date: "2021-01-02")
+@dayplan2.recipes.create!(name: 'cheese n grits', ingredients: "cheese, grits", instructions: "boil water, add oats, add salt, stir, eat", spoonacular_id: "19823674598157", image: "https://spoonacular.com/recipeImages/595736-556x370.jpg")
