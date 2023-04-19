@@ -7,4 +7,6 @@ class Recipe < ApplicationRecord
 
   has_many :day_plan_recipes
   has_many :day_plans, through: :day_plan_recipes
+  has_many :users, through: :day_plans
+
 end

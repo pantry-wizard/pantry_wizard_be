@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :day_plans
   has_many :day_plan_recipes, through: :day_plans
   has_many :recipes, through: :day_plan_recipes
+
 end

@@ -2,7 +2,7 @@ class Api::V1::UserDayPlansController < ApplicationController
   before_action :user
 
   def index
-    render json: DayPlanSerializer.new(user.day_plans)
+    render json: DayPlanSerializer.new(@user.day_plans)
   end
 
   def show
@@ -13,7 +13,7 @@ class Api::V1::UserDayPlansController < ApplicationController
 
   def create 
     begin 
-      render json: DayPlanSerializer.new(user.day_plans.create!(day_plan_params))
+      render json: DayPlanSerializer.new(@user.day_plans.create!(day_plan_params))
     end
   end
 
@@ -32,7 +32,7 @@ class Api::V1::UserDayPlansController < ApplicationController
   private
 
   def user
-    User.find(params[:user_id])
+    @user ||= User.find(params[:user_id])
   end
 
   def day_plan_params
