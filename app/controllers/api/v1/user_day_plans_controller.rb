@@ -25,6 +25,8 @@ class Api::V1::UserDayPlansController < ApplicationController
 
   def destroy
     begin
+      day_plan = DayPlan.find(params[:id])
+      day_plan.day_plan_recipes.destroy_all
       render json: DayPlanSerializer.new(DayPlan.destroy(params[:id]))
     end
   end
