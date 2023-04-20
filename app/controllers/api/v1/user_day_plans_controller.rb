@@ -2,7 +2,11 @@ class Api::V1::UserDayPlansController < ApplicationController
   before_action :user
 
   def index
-    render json: DayPlanSerializer.new(@user.day_plans)
+    if params[:q] == "upcoming"
+      render json: DayPlanSerializer.new(@user.day_plans.upcoming)
+    else
+      render json: DayPlanSerializer.new(@user.day_plans)
+    end
   end
 
   def show
@@ -25,6 +29,8 @@ class Api::V1::UserDayPlansController < ApplicationController
 
   def destroy
     begin
+      day_plan = DayPlan.find(params[:id])
+      day_plan.day_plan_recipes.destroy_all
       render json: DayPlanSerializer.new(DayPlan.destroy(params[:id]))
     end
   end

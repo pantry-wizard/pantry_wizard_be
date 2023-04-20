@@ -9,8 +9,8 @@ describe "Recipes API" do
   end
 
   describe "#index" do
-    it "returns all recipes associated with a user" do
-      get "/api/v1/users/#{@user.id}/recipes"
+    it "returns all recipes" do
+      get "/api/v1/recipes"
 
       expect(response).to be_successful
       recipes = JSON.parse(response.body, symbolize_names: true)
@@ -33,7 +33,7 @@ describe "Recipes API" do
     it "creates a recipe" do
       recipe_params = { name: 'brownies', ingredients: "sugar, chocolate, flour", instructions: "just throw it all in a bowl and mix, spread it out over a baking pan, bake unitl it no longer looks weird", spoonacular_id: "1234567890", image: "https://spoonacular.com/recipeImages/595736-556x370.jpg", day_plan_id: @day_plan.id }
 
-      post "/api/v1/users/#{@user.id}/recipes", params: recipe_params
+      post "/api/v1/recipes", params: recipe_params
       
       expect(response).to be_successful
       recipe = JSON.parse(response.body, symbolize_names: true)
@@ -49,7 +49,7 @@ describe "Recipes API" do
   describe "#destroy" do
     it "deletes a recipe" do
       expect(@day_plan.recipes.count).to eq(2)
-      delete "/api/v1/users/#{@user.id}/recipes/#{@recipe_1.id}"
+      delete "/api/v1/recipes/#{@recipe_1.id}"
       expect(response).to be_successful
       expect(@day_plan.recipes.count).to eq(1)
     end
