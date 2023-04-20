@@ -155,6 +155,9 @@ If any tests are not passing, please report which tests are not passing <a href=
 
 <br>
 
+### __User__ __Endpoints__
+
+<br>
 ### 1. Create a New User
 <br>
 
@@ -182,7 +185,330 @@ Response:
   }
 }
 ```
+### 2. Return All Users
+<br>
 
+```bash 
+GET '/api/v1/users'
+```
+
+Response: 
+```bash
+{
+    "data": [
+        {
+            "id": "USER_ID",
+            "type": "user",
+            "attributes": {
+                "email": "EMAIL",
+                "name": "NAME",
+                "google_id": "GOOGLE_ID",
+                "id": "USER_ID",
+                "intolerances": "INTOLERANCES",
+                "likes": "LIKES",
+                "dislikes": "DISLIKES",
+                "dietary_restrictions": "DIETARY RESTRICTIONS"
+            }
+        }
+    ]
+}
+```
+
+### 3. Return a Specific User
+<br>
+
+```bash 
+GET 'api/v1/users/{google_id}
+```
+
+Response: 
+```bash
+{
+    "data": [
+        {
+            "id": "USER_ID",
+            "type": "user",
+            "attributes": {
+                "email": "EMAIL",
+                "name": "NAME",
+                "google_id": "GOOGLE_ID",
+                "id": "USER_ID",
+                "intolerances": "INTOLERANCES",
+                "likes": "LIKES",
+                "dislikes": "DISLIKES",
+                "dietary_restrictions": "DIETARY RESTRICTIONS"
+            }
+        }
+    ]
+}
+```
+
+### 4. Update a User 
+<br>
+
+*Note:* pass updated attributes in request body
+
+```bash 
+PATCH 'api/v1/users/{google_id}
+```
+
+Response: 
+```bash
+{
+    "data": [
+        {
+            "id": "USER_ID",
+            "type": "user",
+            "attributes": {
+                "email": "EMAIL",
+                "name": "NAME",
+                "google_id": "GOOGLE_ID",
+                "id": "USER_ID",
+                "intolerances": "INTOLERANCES",
+                "likes": "LIKES",
+                "dislikes": "DISLIKES",
+                "dietary_restrictions": "DIETARY RESTRICTIONS"
+            }
+        }
+    ]
+}
+```
+
+### 5. Delete a User
+<br>
+
+```bash 
+DELETE 'api/v1/users/{google_id}'
+```
+<br>
+<br>
+
+## __Day__ __Plan__ __Endpoints__ 
+<br>
+### 1. Get Day Plans for a User
+<br>
+
+```bash 
+GET 'api/vi/users/{google_id}/day_plans
+```
+
+Response:
+
+```bash 
+{
+    "data": [
+        {
+            "id": "ID",
+            "type": "day_plan",
+            "attributes": {
+                "user_id": "USER_ID",
+                "date": "DATE",
+                "recipes": [
+                    {
+                        "id": "RECIPE_ID",
+                        "spoonacular_id": "SPOONACULAR_ID",
+                        "name": "RECIPE_NAME",
+                        "ingredients": "RECIPE INGREDIENTS",
+                        "instructions": "RECIPE INSTRUCTIONS",
+                        "image": "RECIPE IMAGE",
+                        "created_at": "CREATED_AT",
+                        "updated_at": "UPDATED_AT"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### 2. Get a Specific Day Plan for a User
+<br>
+
+```bash 
+GET 'api/v1/users/{user_id}/day_plans/{day_plan_id}'
+```
+
+Response: 
+```bash 
+{
+    "data": [
+        {
+            "id": "ID",
+            "type": "day_plan",
+            "attributes": {
+                "user_id": "USER_ID",
+                "date": "DATE",
+                "recipes": [
+                    {
+                        "id": "RECIPE_ID",
+                        "spoonacular_id": "SPOONACULAR_ID",
+                        "name": "RECIPE_NAME",
+                        "ingredients": "RECIPE INGREDIENTS",
+                        "instructions": "RECIPE INSTRUCTIONS",
+                        "image": "RECIPE IMAGE",
+                        "created_at": "CREATED_AT",
+                        "updated_at": "UPDATED_AT"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### 3. Create a Day Plan for a User
+<br>
+
+```bash
+Post '/api/v1/users/{user_id}/day_plans
+```
+
+Response: 
+```bash 
+{
+    "data": [
+        {
+            "id": "ID",
+            "type": "day_plan",
+            "attributes": {
+                "user_id": "USER_ID",
+                "date": "DATE",
+                "recipes": [
+                    {
+                        "id": "RECIPE_ID",
+                        "spoonacular_id": "SPOONACULAR_ID",
+                        "name": "RECIPE_NAME",
+                        "ingredients": "RECIPE INGREDIENTS",
+                        "instructions": "RECIPE INSTRUCTIONS",
+                        "image": "RECIPE IMAGE",
+                        "created_at": "CREATED_AT",
+                        "updated_at": "UPDATED_AT"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### 4. Update a Day Plan for a User
+<br>
+
+*Note:* pass updated attributes in request body
+
+```bash
+PATCH '/api/v1/users/{user_id}/day_plans/{day_plan_id}'
+```
+Response: 
+```bash 
+{
+    "data": [
+        {
+            "id": "ID",
+            "type": "day_plan",
+            "attributes": {
+                "user_id": "USER_ID",
+                "date": "DATE",
+                "recipes": [
+                    {
+                        "id": "RECIPE_ID",
+                        "spoonacular_id": "SPOONACULAR_ID",
+                        "name": "RECIPE_NAME",
+                        "ingredients": "RECIPE INGREDIENTS",
+                        "instructions": "RECIPE INSTRUCTIONS",
+                        "image": "RECIPE IMAGE",
+                        "created_at": "CREATED_AT",
+                        "updated_at": "UPDATED_AT"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+### 5. Delete a Day Plan for a User
+<br>
+
+```bash
+DELETE '/api/v1/users/{user_id}/day_plans/{day_plan_id}
+```
+<br>
+<br>
+
+## __Recipe__ __End__ __Points__
+<br>
+
+### 1. Get All Recipes
+<br>
+
+```bash 
+GET '/api/v1/recipes
+```
+Response:
+```bash
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "recipe",
+            "attributes": {
+                "spoonacular_id": "SPOONACULAR_ID",
+                "name": "RECIPE_NAME",
+                "ingredients": "RECIPE_INGREDIENTS",
+                "instructions": "RECIPE_INSTRUCTIONS",
+                "image": "RECIPE_IMAGE"
+        }
+    ]
+}
+```
+
+### 2. Create a Recipe
+<br>
+
+```bash 
+Post '/api/v1/recipes'
+```
+Response:
+
+```bash
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "recipe",
+            "attributes": {
+                "spoonacular_id": "SPOONACULAR_ID",
+                "name": "RECIPE_NAME",
+                "ingredients": "RECIPE_INGREDIENTS",
+                "instructions": "RECIPE_INSTRUCTIONS",
+                "image": "RECIPE_IMAGE"
+        }
+    ]
+}
+```
+
+### 3. Add a Recipe to a Day Plan
+<br>
+
+*Note:* You must pass in a day plan id and recipe id as params(params: { day_plan_id: @day_plan.id, recipe_id: @recipe_1.id })
+
+```bash
+Post '/api/v1/day_plan_recipes
+```
+
+Response: 
+```bash 
+{
+    "data": {
+        "id": "6",
+        "type": "day_plan_recipe",
+        "attributes": {
+            "day_plan_id": "DAY_PLAN_ID"
+            "recipe_id": "RECIPE_ID"
+        }
+    }
+}
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
